@@ -56,15 +56,47 @@
 		0482C7DC29AD9AD900101C48 /* WheatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				0482C7F429AF8E9D00101C48 /* View */,
+				0482C7F329AF8E9300101C48 /* Model */,
+				0482C7F229AF8E8400101C48 /* Controller */,
+				0482C7F129AF8E5C00101C48 /* Files */,
+			);
+			path = WheatherApp;
+			sourceTree = "<group>";
+		};
+		0482C7F129AF8E5C00101C48 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				0482C7E829AD9ADC00101C48 /* LaunchScreen.storyboard */,
+				0482C7E329AD9AD900101C48 /* Main.storyboard */,
+				0482C7E629AD9ADC00101C48 /* Assets.xcassets */,
+				0482C7EB29AD9ADC00101C48 /* Info.plist */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		0482C7F229AF8E8400101C48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				0482C7DD29AD9AD900101C48 /* AppDelegate.swift */,
 				0482C7DF29AD9AD900101C48 /* SceneDelegate.swift */,
 				0482C7E129AD9AD900101C48 /* WeatherViewController.swift */,
-				0482C7E329AD9AD900101C48 /* Main.storyboard */,
-				0482C7E629AD9ADC00101C48 /* Assets.xcassets */,
-				0482C7E829AD9ADC00101C48 /* LaunchScreen.storyboard */,
-				0482C7EB29AD9ADC00101C48 /* Info.plist */,
 			);
-			path = WheatherApp;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0482C7F329AF8E9300101C48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0482C7F429AF8E9D00101C48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
