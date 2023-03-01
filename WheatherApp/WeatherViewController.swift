@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WeatherViewController: UIViewController {
     //background
     let backGroundView = UIImageView()
     
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     
 }
-extension ViewController {
+extension WeatherViewController {
     
     func makeTemperatureText(with temperature: String)  -> NSAttributedString {
         var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
