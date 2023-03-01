@@ -60,6 +60,7 @@
 				0482C7F329AF8E9300101C48 /* Model */,
 				0482C7F229AF8E8400101C48 /* Controller */,
 				0482C7F129AF8E5C00101C48 /* Files */,
+				0482C7EB29AD9ADC00101C48 /* Info.plist */,
 			);
 			path = WheatherApp;
 			sourceTree = "<group>";
@@ -70,7 +71,6 @@
 				0482C7E829AD9ADC00101C48 /* LaunchScreen.storyboard */,
 				0482C7E329AD9AD900101C48 /* Main.storyboard */,
 				0482C7E629AD9ADC00101C48 /* Assets.xcassets */,
-				0482C7EB29AD9ADC00101C48 /* Info.plist */,
 			);
 			path = Files;
 			sourceTree = "<group>";
