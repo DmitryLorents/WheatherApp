@@ -34,6 +34,19 @@ class ViewController: UIViewController {
     
 }
 extension ViewController {
+    
+    func makeTemperatureText(with temperature: String)  -> NSAttributedString {
+        var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
+        boldTextAttributes[.foregroundColor] = UIColor.label
+        boldTextAttributes[.font] = UIFont.boldSystemFont(ofSize: 100)
+        
+        var plaintextAttributes = [NSAttributedString.Key: AnyObject]()
+        plaintextAttributes[.font] = UIFont.systemFont(ofSize: 80)
+        
+        let text = NSMutableAttributedString(string: temperature, attributes: boldTextAttributes)
+        text.append(NSAttributedString(string: "°C", attributes: plaintextAttributes))
+        return text
+    }
     func style() {
         
         backGroundView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,8 +82,7 @@ extension ViewController {
         conditionImageView.tintColor = .label
         
         temperatureLabel.translatesAutoresizingMaskIntoConstraints  = false
-        temperatureLabel.text  = "22°C"
-        temperatureLabel.font = UIFont.systemFont(ofSize: 80)
+        temperatureLabel.attributedText = makeTemperatureText(with: "22")
         
         cityLabel.translatesAutoresizingMaskIntoConstraints = false
         cityLabel.text = "Cupertino"
