@@ -8,12 +8,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    //background
     let backGroundView = UIImageView()
+    
+    //search
     let locationButton = UIButton()
     let searchButton = UIButton()
     let searchTextField = UITextField()
     let searchStackView = UIStackView()
+    
+    //wheather
+    let rootStackView = UIStackView()
+    let conditionImageView = UIImageView()
+    let temperatureLabel = UILabel()
+    let cityLabel = UILabel()
     
     
     override func viewDidLoad() {
@@ -49,15 +57,40 @@ extension ViewController {
         
         searchStackView.translatesAutoresizingMaskIntoConstraints = false
         searchStackView.spacing = 10
+        
+        rootStackView.translatesAutoresizingMaskIntoConstraints = false
+        rootStackView.axis  = .vertical
+        rootStackView.alignment = .trailing
+        rootStackView.spacing = 10
+        
+        //wheather
+        conditionImageView.translatesAutoresizingMaskIntoConstraints = false
+        conditionImageView.image = UIImage(systemName: "sun.max")
+        conditionImageView.tintColor = .label
+        
+        temperatureLabel.translatesAutoresizingMaskIntoConstraints  = false
+        temperatureLabel.text  = "22°C"
+        temperatureLabel.font = UIFont.systemFont(ofSize: 80)
+        
+        cityLabel.translatesAutoresizingMaskIntoConstraints = false
+        cityLabel.text = "Cupertino"
+        cityLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
     }
     
     func layout() {
         //add views
         view.addSubview(backGroundView)
+        
         searchStackView.addArrangedSubview(locationButton)
         searchStackView.addArrangedSubview(searchTextField)
         searchStackView.addArrangedSubview(searchButton)
-        view.addSubview(searchStackView)
+        
+        rootStackView.addArrangedSubview(searchStackView)
+        rootStackView.addArrangedSubview(conditionImageView)
+        rootStackView.addArrangedSubview(temperatureLabel)
+        rootStackView.addArrangedSubview(cityLabel)
+        view.addSubview(rootStackView)
+        
         //        view.addSubview(locationButton)
         //        view.addSubview(searchButton)
         //        view.addSubview(searchTextField)
@@ -70,9 +103,13 @@ extension ViewController {
             backGroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backGroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            searchStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1),
-            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: searchStackView.trailingAnchor, multiplier: 1),
+            rootStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            rootStackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 1),
+            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: rootStackView.trailingAnchor, multiplier: 1),
+            searchStackView.leadingAnchor.constraint(equalTo: rootStackView.leadingAnchor),
+            
+            conditionImageView.heightAnchor.constraint(equalToConstant: 120),
+            conditionImageView.widthAnchor.constraint(equalTo: conditionImageView.heightAnchor),
             
             //            locationButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             //            locationButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
