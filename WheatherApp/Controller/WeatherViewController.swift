@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     //background
@@ -23,6 +24,9 @@ class WeatherViewController: UIViewController {
     let temperatureLabel = UILabel()
     let cityLabel = UILabel()
     
+    //location
+    let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,9 @@ extension WeatherViewController {
     func setup() {
         //NotificationCenter.default.addObserver(self, selector: #selector(receiveWeather(_:)), name: .didReceiveWeather, object: nil)
         searchTextField.delegate = self
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
     func makeTemperatureText(with temperature: String)  -> NSAttributedString {
@@ -62,6 +69,7 @@ extension WeatherViewController {
         locationButton.translatesAutoresizingMaskIntoConstraints = false
         locationButton.setBackgroundImage(UIImage(systemName: "location.circle.fill"), for: .normal)
         locationButton.tintColor = .label
+        locationButton.addTarget(self, action: #selector(locationPressed(_:)), for: .primaryActionTriggered)
         
         searchButton.translatesAutoresizingMaskIntoConstraints =  false
         searchButton.setBackgroundImage(UIImage(systemName: "magnifyingglass"), for: .normal)
@@ -200,5 +208,26 @@ extension WeatherViewController: UITextFieldDelegate {
             //weatherService.fetchWeather(cityName: city)
         }
         textField.text = ""
+    }
+}
+
+//MARK: - CLLocationManagerDelegate
+extension WeatherViewController: CLLocationManagerDelegate {
+    
+    @objc func locationPressed(_ sender: UIButton) {
+        locationManager.requestLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let long = location.coordinate.longitude
+            //weatherService.fetchWeather(latitude: lat, longitude: long)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
 }
