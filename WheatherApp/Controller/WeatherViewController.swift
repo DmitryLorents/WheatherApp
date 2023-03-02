@@ -26,6 +26,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         style()
         layout()
         
@@ -34,6 +35,10 @@ class WeatherViewController: UIViewController {
     
 }
 extension WeatherViewController {
+    
+    func setup() {
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveWeather(_:)), name: .didReceiveWeather, object: nil)
+    }
     
     func makeTemperatureText(with temperature: String)  -> NSAttributedString {
         var boldTextAttributes = [NSAttributedString.Key: AnyObject]()
@@ -60,6 +65,7 @@ extension WeatherViewController {
         searchButton.translatesAutoresizingMaskIntoConstraints =  false
         searchButton.setBackgroundImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         searchButton.tintColor = .label
+        searchButton.addTarget(self, action: #selector(searchPressed(_:)), for: .primaryActionTriggered)
         
         searchTextField.placeholder = "Search"
         searchTextField.translatesAutoresizingMaskIntoConstraints  = false
@@ -138,5 +144,20 @@ extension WeatherViewController {
             //            searchTextField.trailingAnchor.constraint(equalTo: searchButton.leadingAnchor, constant: -10),
             searchTextField.heightAnchor.constraint(equalTo: locationButton.heightAnchor)
         ])
+    }
+}
+
+extension WeatherViewController {
+    @objc  func searchPressed(_ sender: UIButton) {
+        let service = WeatherNotificationService()
+        service.fetchWeather(cityName: "New York")
+    }
+    @objc func receiveWeather(_ notification: Notification) {
+        guard let data = notification.userInfo as? [String: WeatherModel] else {return}
+        guard let weatherModel = data["currentWeather"] else {return}
+        
+        temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
+        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+        cityLabel.text = weatherModel.cityName
     }
 }
