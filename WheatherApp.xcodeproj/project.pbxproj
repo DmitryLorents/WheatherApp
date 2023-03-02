@@ -13,6 +13,7 @@
 		0482C7E529AD9AD900101C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0482C7E329AD9AD900101C48 /* Main.storyboard */; };
 		0482C7E729AD9ADC00101C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0482C7E629AD9ADC00101C48 /* Assets.xcassets */; };
 		0482C7EA29AD9ADC00101C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0482C7E829AD9ADC00101C48 /* LaunchScreen.storyboard */; };
+		0482C7F629AF8F9400101C48 /* WheatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7F529AF8F9400101C48 /* WheatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0482C7E629AD9ADC00101C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0482C7E929AD9ADC00101C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0482C7EB29AD9ADC00101C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0482C7F529AF8F9400101C48 /* WheatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		0482C7F329AF8E9300101C48 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0482C7F529AF8F9400101C48 /* WheatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				0482C7E229AD9AD900101C48 /* WeatherViewController.swift in Sources */,
 				0482C7DE29AD9AD900101C48 /* AppDelegate.swift in Sources */,
 				0482C7E029AD9AD900101C48 /* SceneDelegate.swift in Sources */,
+				0482C7F629AF8F9400101C48 /* WheatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
