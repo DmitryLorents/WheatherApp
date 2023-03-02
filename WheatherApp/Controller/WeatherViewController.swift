@@ -37,7 +37,7 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController {
     
     func setup() {
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveWeather(_:)), name: .didReceiveWeather, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(receiveWeather(_:)), name: .didReceiveWeather, object: nil)
     }
     
     func makeTemperatureText(with temperature: String)  -> NSAttributedString {
@@ -148,16 +148,31 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController {
-    @objc  func searchPressed(_ sender: UIButton) {
-        let service = WeatherNotificationService()
-        service.fetchWeather(cityName: "New York")
-    }
-    @objc func receiveWeather(_ notification: Notification) {
-        guard let data = notification.userInfo as? [String: WeatherModel] else {return}
-        guard let weatherModel = data["currentWeather"] else {return}
-        
+    
+    private func updateUI(with weatherModel: WeatherModel) {
         temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
-        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
-        cityLabel.text = weatherModel.cityName
+                conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+                cityLabel.text = weatherModel.cityName
     }
+    
+    func handleWeather(weatherModel: WeatherModel) {
+        updateUI(with: weatherModel)
+    }
+    @objc  func searchPressed(_ sender: UIButton) {
+        
+        var service = WeatherClosureService()
+        let handler: (WeatherModel) -> Void = handleWeather(weatherModel:)
+        service.receiveWeatherHandler = handler
+        service.fetchWeather(cityName: "Stockholm")
+//        let service = WeatherNotificationService()
+//        service.fetchWeather(cityName: "New York")
+    }
+//    @objc func receiveWeather(_ notification: Notification) {
+//        guard let data = notification.userInfo as? [String: WeatherModel] else {return}
+//        guard let weatherModel = data["currentWeather"] else {return}
+//
+//        temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
+//        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+//        cityLabel.text = weatherModel.cityName
+//    }
 }
