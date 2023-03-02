@@ -38,6 +38,7 @@ extension WeatherViewController {
     
     func setup() {
         //NotificationCenter.default.addObserver(self, selector: #selector(receiveWeather(_:)), name: .didReceiveWeather, object: nil)
+        searchTextField.delegate = self
     }
     
     func makeTemperatureText(with temperature: String)  -> NSAttributedString {
@@ -147,7 +148,7 @@ extension WeatherViewController {
     }
 }
 
-extension WeatherViewController {
+extension WeatherViewController: UITextFieldDelegate {
     
     private func updateUI(with weatherModel: WeatherModel) {
         temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
@@ -159,11 +160,14 @@ extension WeatherViewController {
         updateUI(with: weatherModel)
     }
     @objc  func searchPressed(_ sender: UIButton) {
-        
-        var service = WeatherClosureService()
-        let handler: (WeatherModel) -> Void = handleWeather(weatherModel:)
-        service.receiveWeatherHandler = handler
-        service.fetchWeather(cityName: "Stockholm")
+        //delegate
+        searchTextField.endEditing(true)
+        //closure
+//        var service = WeatherClosureService()
+//        let handler: (WeatherModel) -> Void = handleWeather(weatherModel:)
+//        service.receiveWeatherHandler = handler
+//        service.fetchWeather(cityName: "Stockholm")
+        //notification service
 //        let service = WeatherNotificationService()
 //        service.fetchWeather(cityName: "New York")
     }
@@ -175,4 +179,26 @@ extension WeatherViewController {
 //        conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
 //        cityLabel.text = weatherModel.cityName
 //    }
+    //MARK: -UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTextField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Type something"
+            return false
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let city = textField.text {
+            //weatherService.fetchWeather(cityName: city)
+        }
+        textField.text = ""
+    }
 }
