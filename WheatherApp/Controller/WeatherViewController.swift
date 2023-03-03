@@ -27,6 +27,8 @@ class WeatherViewController: UIViewController {
     //location
     let locationManager = CLLocationManager()
     
+    var weatherService = WeatherService()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ extension WeatherViewController {
         //NotificationCenter.default.addObserver(self, selector: #selector(receiveWeather(_:)), name: .didReceiveWeather, object: nil)
         searchTextField.delegate = self
         locationManager.delegate = self
+        weatherService.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
@@ -158,12 +161,6 @@ extension WeatherViewController {
 
 extension WeatherViewController: UITextFieldDelegate {
     
-    private func updateUI(with weatherModel: WeatherModel) {
-        temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
-                conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
-                cityLabel.text = weatherModel.cityName
-    }
-    
     func handleWeather(weatherModel: WeatherModel) {
         updateUI(with: weatherModel)
     }
@@ -205,7 +202,7 @@ extension WeatherViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let city = textField.text {
-            //weatherService.fetchWeather(cityName: city)
+            weatherService.fetchWeather(cityName: city)
         }
         textField.text = ""
     }
@@ -223,11 +220,26 @@ extension WeatherViewController: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             let lat = location.coordinate.latitude
             let long = location.coordinate.longitude
-            //weatherService.fetchWeather(latitude: lat, longitude: long)
+            weatherService.fetchWeather(latitude: lat, longitude: long)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
+}
+
+//WeatherManagerDelegate
+
+extension WeatherViewController: WeatherServiceDelegate {
+    func didFetchWeather(_weatherService: WeatherService, _ weather: WeatherModel) {
+        updateUI(with: weather)
+    }
+    
+    private func updateUI(with weatherModel: WeatherModel) {
+        temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
+                conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
+                cityLabel.text = weatherModel.cityName
+    }
+    
 }
