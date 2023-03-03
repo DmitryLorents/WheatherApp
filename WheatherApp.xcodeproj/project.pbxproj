@@ -17,6 +17,7 @@
 		0482C7F829B0BBA700101C48 /* WheatherNotificationservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7F729B0BBA700101C48 /* WheatherNotificationservice.swift */; };
 		0482C7FA29B0CEAD00101C48 /* WeatherClosureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7F929B0CEAD00101C48 /* WeatherClosureService.swift */; };
 		0482C7FC29B0EC5200101C48 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7FB29B0EC5200101C48 /* WeatherService.swift */; };
+		0482C7FE29B22EDE00101C48 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7FD29B22EDE00101C48 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		0482C7F729B0BBA700101C48 /* WheatherNotificationservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherNotificationservice.swift; sourceTree = "<group>"; };
 		0482C7F929B0CEAD00101C48 /* WeatherClosureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClosureService.swift; sourceTree = "<group>"; };
 		0482C7FB29B0EC5200101C48 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		0482C7FD29B22EDE00101C48 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				0482C7F729B0BBA700101C48 /* WheatherNotificationservice.swift */,
 				0482C7F929B0CEAD00101C48 /* WeatherClosureService.swift */,
 				0482C7FB29B0EC5200101C48 /* WeatherService.swift */,
+				0482C7FD29B22EDE00101C48 /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				0482C7E029AD9AD900101C48 /* SceneDelegate.swift in Sources */,
 				0482C7F629AF8F9400101C48 /* WheatherModel.swift in Sources */,
 				0482C7FC29B0EC5200101C48 /* WeatherService.swift in Sources */,
+				0482C7FE29B22EDE00101C48 /* WeatherData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
