@@ -57,6 +57,25 @@ class WeatherDataTest: XCTestCase {
         XCTAssertEqual("overcast clouds", weatherData.weather[0].description)
     }
     
-    
+    func testCanParseWeatherWithEmptyCityName() throws {
+        let json = """
+                 {
+                   "weather": [
+                     {
+                       "id": 804,
+                       "description": "overcast clouds",
+                     }
+                   ],
+                   "main": {
+                     "temp": 10.58,
+                   },
+                   "name": ""
+                 }
+                """
+        let jsonData = json.data(using: .utf8)!
+        let weatherData = try! JSONDecoder().decode(WeatherData.self, from: jsonData)
+        
+        XCTAssertEqual("", weatherData.name)
+    }
     
 }
