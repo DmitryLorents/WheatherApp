@@ -229,7 +229,7 @@ extension WeatherViewController: CLLocationManagerDelegate {
     }
 }
 
-//WeatherManagerDelegate
+//WeatherServiceDelegate
 
 extension WeatherViewController: WeatherServiceDelegate {
     func didFetchWeather(_weatherService: WeatherService, _ weather: WeatherModel) {
@@ -240,6 +240,25 @@ extension WeatherViewController: WeatherServiceDelegate {
         temperatureLabel.attributedText = makeTemperatureText(with: weatherModel.temperatureString)
                 conditionImageView.image = UIImage(systemName: weatherModel.conditionName)
                 cityLabel.text = weatherModel.cityName
+    }
+    
+    func didFailWithError(_ weatherService: WeatherService, _ error: ServiceError) {
+        let message: String
+        switch error {
+        case .network(statusCode: let statusCode):
+            message = "Networking error. Status code: \(statusCode)"
+        case .parsing:
+            message = "JSON weather data could not be parsed."
+        case .general(reason: let reason):
+            message = reason
+        }
+        showErrorAlert(with: message)
+    }
+    
+    func showErrorAlert(with message: String) {
+        let alert = UIAlertController(title: "Error fetching weather", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated: true)
     }
     
 }

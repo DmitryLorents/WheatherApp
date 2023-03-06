@@ -8,6 +8,12 @@
 import Foundation
 import CoreLocation
 
+enum ServiceError: Error  {
+    case network(statusCode: Int)
+    case parsing
+    case general(reason: String)
+}
+
 protocol WeatherServiceDelegate: AnyObject {
     func didFetchWeather(_weatherService: WeatherService, _ weather: WeatherModel)
 }
@@ -17,7 +23,11 @@ struct WeatherService {
     let weatherURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?appid=ce5edb27133f4b3a9eab5abfe8072942&units=metric")!
         
     func fetchWeather(cityName: String) {
-        let urlString = "\(weatherURL)&q=\(cityName)"
+        guard let urlEncodedCityName  = cityName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            assertionFailure("Could not encode city named: \(cityName)") //Deebug only
+            return
+        }
+        let urlString = "\(weatherURL)&q=\(urlEncodedCityName)"
         performRequest(with: urlString)
         
 //        let weatherModel = WeatherModel(conditionId: 700, cityName: cityName, temperature: -10)
