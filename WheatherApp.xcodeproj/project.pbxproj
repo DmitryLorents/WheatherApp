@@ -19,6 +19,7 @@
 		0482C7FC29B0EC5200101C48 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7FB29B0EC5200101C48 /* WeatherService.swift */; };
 		0482C7FE29B22EDE00101C48 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7FD29B22EDE00101C48 /* WeatherData.swift */; };
 		0482C80629B60A4400101C48 /* WheatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80529B60A4400101C48 /* WheatherAppTests.swift */; };
+		0482C80D29B60AD500101C48 /* WeatherDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80C29B60AD500101C48 /* WeatherDataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0482C7FD29B22EDE00101C48 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		0482C80329B60A4400101C48 /* WheatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0482C80529B60A4400101C48 /* WheatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherAppTests.swift; sourceTree = "<group>"; };
+		0482C80C29B60AD500101C48 /* WeatherDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				0482C80529B60A4400101C48 /* WheatherAppTests.swift */,
+				0482C80C29B60AD500101C48 /* WeatherDataTest.swift */,
 			);
 			path = WheatherAppTests;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0482C80D29B60AD500101C48 /* WeatherDataTest.swift in Sources */,
 				0482C80629B60A4400101C48 /* WheatherAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
