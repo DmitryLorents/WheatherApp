@@ -20,6 +20,7 @@
 		0482C7FE29B22EDE00101C48 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C7FD29B22EDE00101C48 /* WeatherData.swift */; };
 		0482C80629B60A4400101C48 /* WheatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80529B60A4400101C48 /* WheatherAppTests.swift */; };
 		0482C80D29B60AD500101C48 /* WeatherDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80C29B60AD500101C48 /* WeatherDataTest.swift */; };
+		0482C81029B61F8D00101C48 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 0482C80F29B61F8D00101C48 /* weather.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0482C80329B60A4400101C48 /* WheatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0482C80529B60A4400101C48 /* WheatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherAppTests.swift; sourceTree = "<group>"; };
 		0482C80C29B60AD500101C48 /* WeatherDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataTest.swift; sourceTree = "<group>"; };
+		0482C80F29B61F8D00101C48 /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,10 +143,19 @@
 		0482C80429B60A4400101C48 /* WheatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				0482C80E29B61F3D00101C48 /* Fixtures */,
 				0482C80529B60A4400101C48 /* WheatherAppTests.swift */,
 				0482C80C29B60AD500101C48 /* WeatherDataTest.swift */,
 			);
 			path = WheatherAppTests;
+			sourceTree = "<group>";
+		};
+		0482C80E29B61F3D00101C48 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				0482C80F29B61F8D00101C48 /* weather.json */,
+			);
+			name = Fixtures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0482C81029B61F8D00101C48 /* weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
