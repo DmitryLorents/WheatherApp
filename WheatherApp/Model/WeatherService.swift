@@ -54,14 +54,24 @@ struct WeatherService {
                 return
             }
             
-            if let safeData = data {
-                if let weather = self.parseJSON(safeData) {
-                    DispatchQueue.main.async {
-                        self.delegate?.didFetchWeather(_weatherService: self, weather)
-                    }
+            guard let unwrappedData = data,
+                  let httpResponse = response as? HTTPURLResponse else {return}
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print(httpResponse.statusCode)
+                DispatchQueue.main.async {
+                    self.delegate?.didFailWithError(self, ServiceError.network(statusCode: httpResponse.statusCode))
                 }
+                return
+            }
+            guard let weather = self.parseJSON(unwrappedData) else {return}
+            
+            DispatchQueue.main.async {
+                self.delegate?.didFetchWeather(_weatherService: self, weather)
+                
             }
         }
+        
         task.resume()
     }
     
