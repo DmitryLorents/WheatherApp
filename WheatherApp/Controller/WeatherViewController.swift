@@ -27,7 +27,8 @@ class WeatherViewController: UIViewController {
     //location
     let locationManager = CLLocationManager()
     
-    var weatherService = WeatherService()
+    var weatherService: WeatherServiceProtocol = WeatherService()
+    var errorMessage: String?
     
     
     override func viewDidLoad() {
@@ -232,7 +233,8 @@ extension WeatherViewController: CLLocationManagerDelegate {
 //WeatherServiceDelegate
 
 extension WeatherViewController: WeatherServiceDelegate {
-    func didFetchWeather(_weatherService: WeatherService, _ weather: WeatherModel) {
+    
+    func didFetchWeather(_weatherService: WeatherServiceProtocol, _ weather: WeatherModel) {
         updateUI(with: weather)
     }
     
@@ -242,16 +244,17 @@ extension WeatherViewController: WeatherServiceDelegate {
                 cityLabel.text = weatherModel.cityName
     }
     
-    func didFailWithError(_ weatherService: WeatherService, _ error: ServiceError) {
-        let message: String
+    func didFailWithError(_ weatherService: WeatherServiceProtocol, _ error: ServiceError) {
+        //let message: String
         switch error {
         case .network(statusCode: let statusCode):
-            message = "Networking error. Status code: \(statusCode)"
+            errorMessage = "Networking error. Status code: \(statusCode)"
         case .parsing:
-            message = "JSON weather data could not be parsed."
+            errorMessage = "JSON weather data could not be parsed."
         case .general(reason: let reason):
-            message = reason
+            errorMessage = reason
         }
+        guard let message = errorMessage else {return}
         showErrorAlert(with: message)
     }
     

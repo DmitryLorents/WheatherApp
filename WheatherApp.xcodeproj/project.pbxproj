@@ -21,6 +21,7 @@
 		0482C80629B60A4400101C48 /* WheatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80529B60A4400101C48 /* WheatherAppTests.swift */; };
 		0482C80D29B60AD500101C48 /* WeatherDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80C29B60AD500101C48 /* WeatherDataTest.swift */; };
 		0482C81029B61F8D00101C48 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 0482C80F29B61F8D00101C48 /* weather.json */; };
+		0482C81229B78D9300101C48 /* WeatherViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C81129B78D9300101C48 /* WeatherViewControllerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0482C80529B60A4400101C48 /* WheatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheatherAppTests.swift; sourceTree = "<group>"; };
 		0482C80C29B60AD500101C48 /* WeatherDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataTest.swift; sourceTree = "<group>"; };
 		0482C80F29B61F8D00101C48 /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
+		0482C81129B78D9300101C48 /* WeatherViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				0482C80F29B61F8D00101C48 /* weather.json */,
+				0482C81129B78D9300101C48 /* WeatherViewControllerTest.swift */,
 			);
 			name = Fixtures;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0482C81229B78D9300101C48 /* WeatherViewControllerTest.swift in Sources */,
 				0482C80D29B60AD500101C48 /* WeatherDataTest.swift in Sources */,
 				0482C80629B60A4400101C48 /* WheatherAppTests.swift in Sources */,
 			);
