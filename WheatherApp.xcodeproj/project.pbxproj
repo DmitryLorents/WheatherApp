@@ -22,6 +22,7 @@
 		0482C80D29B60AD500101C48 /* WeatherDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C80C29B60AD500101C48 /* WeatherDataTest.swift */; };
 		0482C81029B61F8D00101C48 /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 0482C80F29B61F8D00101C48 /* weather.json */; };
 		0482C81229B78D9300101C48 /* WeatherViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482C81129B78D9300101C48 /* WeatherViewControllerTest.swift */; };
+		0AD267472AE5AB8C00AD8596 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0AD267462AE5AB8C00AD8596 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		0482C80C29B60AD500101C48 /* WeatherDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataTest.swift; sourceTree = "<group>"; };
 		0482C80F29B61F8D00101C48 /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
 		0482C81129B78D9300101C48 /* WeatherViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerTest.swift; sourceTree = "<group>"; };
+		0AD267462AE5AB8C00AD8596 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		0482C7D129AD9AD900101C48 = {
 			isa = PBXGroup;
 			children = (
+				0AD267462AE5AB8C00AD8596 /* README.md */,
 				0482C7DC29AD9AD900101C48 /* WheatherApp */,
 				0482C80429B60A4400101C48 /* WheatherAppTests */,
 				0482C7DB29AD9AD900101C48 /* Products */,
@@ -244,6 +247,7 @@
 			files = (
 				0482C7EA29AD9ADC00101C48 /* LaunchScreen.storyboard in Resources */,
 				0482C7E729AD9ADC00101C48 /* Assets.xcassets in Resources */,
+				0AD267472AE5AB8C00AD8596 /* README.md in Resources */,
 				0482C7E529AD9AD900101C48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
